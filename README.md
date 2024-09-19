@@ -1,11 +1,11 @@
-# biblioteca
+# biblioteca (fase Ultra-Alpha)
 
-Descripciín basisca de su Proyecto de POO ...
+Proyecto de una Biblioteca con varios tipos de funcionalidades conservando la simplesa 
 
 # Autores
 
-- Autor 1
-- Autor 2
+- Pedro Jose Soto Rivera
+- Esteban Gacha Tangarife
 
 # Herramientas
 
