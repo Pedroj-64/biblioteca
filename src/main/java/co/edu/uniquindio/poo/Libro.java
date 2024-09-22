@@ -8,9 +8,10 @@ public class Libro {
     private String autor;
     private String editorial;
     private Date fechaDePublicacion;
+    private int stock;
 
     public Libro(String titulo, String codigo, String isbn, String autor, String editorial, Date fechaDePublicacion,
-            byte stock) {
+            int stock) {
         this.titulo = titulo;
         this.codigo = codigo;
         this.isbn = isbn;
@@ -55,13 +56,18 @@ public class Libro {
     public void setFechaDePublicacion(Date fechaDePublicacion) {
         this.fechaDePublicacion = fechaDePublicacion;
     }
-    public byte getStock() {
+    public int getStock() {
         return stock;
     }
-    public void setStock(byte stock) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
-    private byte stock;
+    
+    @Override
+    public String toString() {
+        return "Libro [titulo=" + titulo + ", codigo=" + codigo + ", isbn=" + isbn + ", autor=" + autor + ", editorial="
+                + editorial + ", fechaDePublicacion=" + fechaDePublicacion + ", stock=" + stock + "]";
+    }
 
     
 

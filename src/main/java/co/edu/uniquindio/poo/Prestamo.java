@@ -3,20 +3,17 @@ import java.sql.Date;
 
 public class Prestamo {
 
-    private double costo;
+
     private Date fechaEntrega;
     private Date fechaPrestamo;
 
-    public Prestamo(double costo,Date fechaEntrega,Date fechaPrestamo){
-        this.costo=costo;
+    public Prestamo(Date fechaEntrega,Date fechaPrestamo){
         this.fechaPrestamo=fechaPrestamo;
         this.fechaEntrega=fechaEntrega;
 
     }
 
-    public double getCosto(){
-        return costo;
-    }
+
 
     public Date getFechaEntrega(){
         return fechaEntrega;
@@ -26,9 +23,7 @@ public class Prestamo {
         return fechaPrestamo;
     }
 
-    public void setCosto(double costo){
-        this.costo=costo;
-    }
+
 
     public void setFechaPrestamo(Date fechaPrestamo){
         this.fechaPrestamo=fechaPrestamo;
@@ -50,9 +45,7 @@ public class Prestamo {
 
     }
 
-    public void calcularCostoTotal(){
 
-    }
 
     public void calcularDiferenciaFecha(){
 

@@ -4,10 +4,14 @@ public class DetallePrestamo  {
 
     private double subtotal;
     private int cantidad;
+    private Estudiante cliente;
+    private Bibliotecario asesor;
 
-    public DetallePrestamo(double subtotal,int cantidad){
+    public DetallePrestamo(double subtotal,int cantidad,Estudiante cliente, Bibliotecario asesor){
         this.subtotal=subtotal;
         this.cantidad=cantidad;
+        this.cliente=cliente;
+        this.asesor=asesor;
     }
 
     public double getSubtotal() {
@@ -24,6 +28,19 @@ public class DetallePrestamo  {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+    public Estudiante getCliente(){
+        return cliente;
+    }
+    public Bibliotecario getBibliotecario(){
+        return asesor;
+
+    }
+    public void setEstudiante(Estudiante cliente){
+        this.cliente=cliente;
+    }
+    public void setBibliotecario(Bibliotecario asesor){
+        this.asesor=asesor;
     }
 
 
