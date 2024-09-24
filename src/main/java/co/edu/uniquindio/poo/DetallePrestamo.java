@@ -42,6 +42,9 @@ public class DetallePrestamo  {
     public void setBibliotecario(Bibliotecario asesor){
         this.asesor=asesor;
     }
+    public void calcularSubtotal(){
+        
+    }
 
 
 

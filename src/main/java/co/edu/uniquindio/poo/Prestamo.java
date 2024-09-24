@@ -47,7 +47,7 @@ public class Prestamo {
 
 
 
-    public void calcularDiferenciaFecha(){
+    public void calcularTotal(){
 
     }
 
