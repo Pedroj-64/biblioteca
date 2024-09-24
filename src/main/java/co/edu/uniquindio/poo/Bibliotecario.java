@@ -20,7 +20,4 @@ public class Bibliotecario extends Persona {
         this.salario=salario;
     }
 
-    public void actulizarCantidadLibro(){
-
-    }
 }

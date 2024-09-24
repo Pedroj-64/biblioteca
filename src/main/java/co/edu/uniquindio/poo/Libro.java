@@ -1,5 +1,4 @@
 package co.edu.uniquindio.poo;
-import java.sql.*;
 
 public class Libro {
     private String titulo;
@@ -7,16 +6,16 @@ public class Libro {
     private String isbn;
     private String autor;
     private String editorial;
-    private Date fechaDePublicacion;
+    private String fechaDePublicacion;
 
-    public Libro(String titulo, String codigo, String isbn, String autor, String editorial, Date fechaDePublicacion,
-            byte stock) {
+    public Libro(String titulo, String codigo, String isbn, String autor, String editorial, String fechaPublicacion,
+            int stock) {
         this.titulo = titulo;
         this.codigo = codigo;
         this.isbn = isbn;
         this.autor = autor;
         this.editorial = editorial;
-        this.fechaDePublicacion = fechaDePublicacion;
+        this.fechaDePublicacion = fechaPublicacion;
         this.stock = stock;
     }
     public String getTitulo() {
@@ -49,19 +48,19 @@ public class Libro {
     public void setEditorial(String editorial) {
         this.editorial = editorial;
     }
-    public Date getFechaDePublicacion() {
+    public String getFechaDePublicacion() {
         return fechaDePublicacion;
     }
-    public void setFechaDePublicacion(Date fechaDePublicacion) {
+    public void setFechaDePublicacion(String fechaDePublicacion) {
         this.fechaDePublicacion = fechaDePublicacion;
     }
-    public byte getStock() {
+    public int getStock() {
         return stock;
     }
-    public void setStock(byte stock) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
-    private byte stock;
+    private int stock;
 
     
 
