@@ -26,4 +26,10 @@ public class AppTest {
         assertTrue(true);
         LOG.info("Finalizando test shouldAnswerWithTrue");
     }
+    
+    @Test
+    public void pruebaMagica(){
+        Libro libro= new Libro(null, null, null, null, null, null, 0, false);
+        assertTrue(libro==null);
+    }
 }

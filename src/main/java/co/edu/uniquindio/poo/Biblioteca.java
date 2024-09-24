@@ -9,6 +9,9 @@ public class Biblioteca {
     private Collection<Prestamo> listaPrestamos;
     private Collection<Bibliotecario> listaEmpleados;
     private Collection<Estudiante> listaClientes;
+    private double ganancia;
+    private int cantidadLibros=listaLibros.size();
+
 
     public Biblioteca(String nombre) {
         this.nombre = nombre;

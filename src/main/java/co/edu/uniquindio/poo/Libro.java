@@ -10,9 +10,10 @@ public class Libro {
     private String editorial;
     private Date fechaDePublicacion;
     private int stock;
+    private boolean estado;
 
     public Libro(String titulo, String codigo, String isbn, String autor, String editorial, Date fechaDePublicacion,
-            int stock) {
+            int stock,boolean estado) {
         this.titulo = titulo;
         this.codigo = codigo;
         this.isbn = isbn;
@@ -20,6 +21,7 @@ public class Libro {
         this.editorial = editorial;
         this.fechaDePublicacion = fechaDePublicacion;
         this.stock = stock;
+        this.estado=estado;
     }
 
     public String getTitulo() {
