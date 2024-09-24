@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo;
-import java.sql.*;
+
+import java.sql.Date;
 
 public class Libro {
     private String titulo;
@@ -56,7 +57,7 @@ public class Libro {
     public void setFechaDePublicacion(Date fechaDePublicacion) {
         this.fechaDePublicacion = fechaDePublicacion;
     }
-    public int getStock() {
+    public int getStock(){
         return stock;
     }
     public void setStock(int stock) {

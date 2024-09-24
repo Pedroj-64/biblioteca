@@ -1,28 +1,33 @@
 package co.edu.uniquindio.poo;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.*;
 import java.util.Collection;
 import java.util.LinkedList;
 
 public class Biblioteca {
     private String nombre;
+    private List<Libro> libros;
     private Collection<Libro> listaLibros;
     private Collection<Prestamo> listaPrestamos;
     private Collection<Bibliotecario> listaEmpleados;
 
 
-    public Biblioteca(String nombre){
-        this.nombre=nombre;
+    public Biblioteca(String nombre) {
+        this.nombre = nombre;
+        this.libros = new ArrayList<>();
         listaLibros=new LinkedList<>();
         listaPrestamos=new LinkedList<>();
         listaEmpleados=new LinkedList<>();
     }
 
-    public String getNombre(){
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre){
-        this.nombre=nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
     public void agregarLibro(Libro libro, int stock){
@@ -65,43 +70,44 @@ public class Biblioteca {
             }
         }
     }
-    public void calcularLibrosPrestamo(){
+
+    public void calcularLibrosPrestamo() {
 
     }
 
-    public void recibirEntregaPrestamo(){
+    public void recibirEntregaPrestamo() {
 
     }
 
-    public void consultarPrestamo(){
+    public void consultarPrestamo() {
 
     }
 
-    public void mostrarPrestamosEmpleado(){
+    public void mostrarPrestamosEmpleado() {
 
     }
 
-    public void mostrarPrestamosEstudiantes(){
+    public void mostrarPrestamosEstudiantes() {
 
     }
 
-    public void mostrarPrestamosEstudiante(){
+    public void mostrarPrestamosEstudiante() {
 
     }
 
-    public void calcularTotalRecaudo(){
+    public void calcularTotalRecaudo() {
 
     }
 
-    public void totalPrestamos(){
+    public void totalPrestamos() {
 
     }
 
-    public void calcularAntiguedad(){
+    public void calcularAntiguedad() {
 
     }
 
-    public void calcularSalarioEmpleado(){
-        
+    public void calcularSalarioEmpleado() {
+
     }
 }
