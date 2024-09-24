@@ -13,8 +13,10 @@ public class Biblioteca {
     private int cantidadLibros=listaLibros.size();
 
 
-    public Biblioteca(String nombre) {
+    public Biblioteca(String nombre,double ganancia , int cantidadLibros) {
         this.nombre = nombre;
+        this.ganancia=ganancia;
+        this.cantidadLibros=cantidadLibros;
         listaLibros = new LinkedList<>();
         listaPrestamos = new LinkedList<>();
         listaEmpleados = new LinkedList<>();
@@ -23,6 +25,22 @@ public class Biblioteca {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public double getGanancia() {
+        return ganancia;
+    }
+
+    public void setGanancia(double ganancia) {
+        this.ganancia = ganancia;
+    }
+
+    public int getCantidadLibros() {
+        return cantidadLibros;
+    }
+
+    public void setCantidadLibros(int cantidadLibros) {
+        this.cantidadLibros = cantidadLibros;
     }
 
     public Collection<Estudiante> getListaClientes() {
