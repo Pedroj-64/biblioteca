@@ -23,7 +23,7 @@ public class Bibliotecario extends Persona {
     }
 
     public void actulizarCantidadLibro(String isbn,int stock){
-        for(Libro libro:biblioteca.getLibros()){
+        for(Libro libro:biblioteca.getListaLibros()){
             if(libro.getIsbn().equals(isbn)){
                 libro.setStock(stock);
             }

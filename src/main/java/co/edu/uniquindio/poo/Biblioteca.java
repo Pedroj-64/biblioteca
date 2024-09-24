@@ -5,7 +5,6 @@ import java.util.LinkedList;
 
 public class Biblioteca {
     private String nombre;
-    private Collection<Libro> libros;
     private Collection<Libro> listaLibros;
     private Collection<Prestamo> listaPrestamos;
     private Collection<Bibliotecario> listaEmpleados;
@@ -27,7 +26,7 @@ public class Biblioteca {
     }
     
     public void agregarLibro(Libro libro, int stock){
-        libros.add(libro);
+        listaLibros.add(libro);
         libro.setStock(stock);
     }
 
@@ -56,12 +55,11 @@ public class Biblioteca {
     }
 
     public void agregarLibro(Libro libro){
-        if()
-
+     
 
     }
     public void consultarLibro(String isbn){
-        for(Libro libro:libros){
+        for(Libro libro:listaLibros){
             if(libro.getIsbn().equals(isbn)){
                 System.out.println(libro);
             }
