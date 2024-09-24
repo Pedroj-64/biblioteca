@@ -10,13 +10,12 @@ public class Biblioteca {
     private Collection<Bibliotecario> listaEmpleados;
     private Collection<Estudiante> listaClientes;
 
-
     public Biblioteca(String nombre) {
         this.nombre = nombre;
-        listaLibros=new LinkedList<>();
-        listaPrestamos=new LinkedList<>();
-        listaEmpleados=new LinkedList<>();
-        listaClientes=new LinkedList <>();
+        listaLibros = new LinkedList<>();
+        listaPrestamos = new LinkedList<>();
+        listaEmpleados = new LinkedList<>();
+        listaClientes = new LinkedList<>();
     }
 
     public String getNombre() {
@@ -60,56 +59,63 @@ public class Biblioteca {
     }
 
     /**
-     * Metodo que busca libro dentro de la lista de existente y arroja el libro que se quiere consultar por medio de ISBN
+     * Metodo que busca libro dentro de la lista de existente y arroja el libro que
+     * se quiere consultar por medio de ISBN
+     * 
      * @param isbn
      */
-    public void consultarLibro(String isbn){
-        for(Libro libro:listaLibros){
-            if(libro.getIsbn().equals(isbn)){
+    public void consultarLibro(String isbn) {
+        for (Libro libro : listaLibros) {
+            if (libro.getIsbn().equals(isbn)) {
                 System.out.println(libro);
             }
         }
     }
 
     /**
-     * Metodo de verificacion de existencia de libro libro a partir de la lista 
+     * Metodo de verificacion de existencia de libro libro a partir de la lista
+     * 
      * @param libro
      * @return
      */
-    public boolean existeLibro(String codigo){
-        boolean banderilla=false;
-        for (Libro libro2 : listaLibros){
-            if(libro2.getCodigo().equals(codigo)){
-                banderilla=true;
+    public boolean existeLibro(String codigo) {
+        boolean banderilla = false;
+        for (Libro libro2 : listaLibros) {
+            if (libro2.getCodigo().equals(codigo)) {
+                banderilla = true;
 
             }
         }
         return banderilla;
     }
-    
+
     /**
-     * Metodo que agrega libro despues de verificar que no exista en caso de que exista solo se suma el stock nuevo
+     * Metodo que agrega libro despues de verificar que no exista en caso de que
+     * exista solo se suma el stock nuevo
+     * 
      * @param libro
      * @param stock
      */
-    public void agregarLibro(Libro libro, int stock){
-        if(!existeLibro(libro.getCodigo())){
+    public void agregarLibro(Libro libro, int stock) {
+        if (!existeLibro(libro.getCodigo())) {
             listaLibros.add(libro);
             libro.setStock(stock);
-        }else{
+        } else {
             libro.setStock(libro.getStock() + stock);
         }
-        
-        
+
     }
+
     /**
-     * Metodo que elimina libro de la lista solo si existe por medio del codigo del libro
+     * Metodo que elimina libro de la lista solo si existe por medio del codigo del
+     * libro
+     * 
      * @param codigo
      */
-    public void eliminarLibro(String codigo){
-        if (existeLibro(codigo)==true){
-            for(Libro libro :listaLibros){
-                if(libro.getCodigo().equals(codigo)){
+    public void eliminarLibro(String codigo) {
+        if (existeLibro(codigo) == true) {
+            for (Libro libro : listaLibros) {
+                if (libro.getCodigo().equals(codigo)) {
                     listaLibros.remove(libro);
                     break;
                 }
