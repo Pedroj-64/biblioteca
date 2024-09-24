@@ -97,4 +97,11 @@ public class Prestamo {
 
     }
 
+    @Override
+    public String toString() {
+        return "Prestamo [fechaEntrega=" + fechaEntrega + ", fechaPrestamo=" + fechaPrestamo + ", costoDia=" + costoDia
+                + ", codigo=" + codigo + ", estudiante=" + estudiante + ", bibliotecario=" + bibliotecario
+                + ", detallePrestamos=" + detallePrestamos + "]";
+    }
+
 }

@@ -4,14 +4,22 @@ public class DetallePrestamo {
 
     private double subtotal;
     private int cantidad;
-    private Estudiante cliente;
-    private Bibliotecario asesor;
+    private Libro libro;
 
-    public DetallePrestamo(double subtotal, int cantidad, Estudiante cliente, Bibliotecario asesor) {
-        this.subtotal = subtotal;
+
+    public DetallePrestamo(int cantidad, Libro libro ) {
+        this.libro=libro;
         this.cantidad = cantidad;
-        this.cliente = cliente;
-        this.asesor = asesor;
+        this.subtotal=0;
+
+    }
+
+    public Libro getLibro() {
+        return libro;
+    }
+
+    public void setLibro(Libro libro) {
+        this.libro = libro;
     }
 
     public double getSubtotal() {
@@ -30,25 +38,13 @@ public class DetallePrestamo {
         this.cantidad = cantidad;
     }
 
-    public Estudiante getCliente() {
-        return cliente;
-    }
-
-    public Bibliotecario getBibliotecario() {
-        return asesor;
-
-    }
-
-    public void setEstudiante(Estudiante cliente) {
-        this.cliente = cliente;
-    }
-
-    public void setBibliotecario(Bibliotecario asesor) {
-        this.asesor = asesor;
-    }
-
     public void calcularSubtotal() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "DetallePrestamo [subtotal=" + subtotal + ", cantidad=" + cantidad + ", libro=" + libro + "]";
     }
 
 }
