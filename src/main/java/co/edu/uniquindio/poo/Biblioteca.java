@@ -144,6 +144,55 @@ public class Biblioteca {
         }
     }
 
+    public boolean existeBibliotecario(String cedula){
+        boolean banderilla=false;
+        for(Bibliotecario bibliotecario : listaEmpleados){
+            if(bibliotecario.getCedula().equals(cedula)){
+                banderilla=true;
+            }
+        }
+
+        return banderilla;
+
+    }
+    public void agregarBibliotecario(Bibliotecario bibliotecario){
+        if(!existeBibliotecario(bibliotecario.getCedula())){
+            listaEmpleados.add(bibliotecario);
+
+        }
+    }
+    public void eliminarBibliotecario(String cedula){
+        for(Bibliotecario bibliotecario : listaEmpleados){
+            if(bibliotecario.getCedula().equals(cedula)){
+                listaEmpleados.remove(bibliotecario);
+            }
+        }
+    }
+    public boolean existeEstudiante(String cedula){
+        boolean banderilla=false;
+        for(Estudiante estudiante : listaClientes){
+            if(estudiante.getCedula().equals(cedula)){
+                banderilla=true;
+            }
+        }
+
+        return banderilla;
+
+    }
+    public void agregarEstudiante(Estudiante estudiante){
+        if(!existeEstudiante(estudiante.getCedula())){
+            listaClientes.add(estudiante);
+
+        }
+    }
+    public void eliminarCliente(String cedula){
+        for(Estudiante estudiante : listaClientes){
+            if(estudiante.getCedula().equals(cedula)){
+                listaClientes.remove(estudiante);
+            }
+        }
+    }
+
     public void calcularLibrosPrestamo() {
 
     }

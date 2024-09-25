@@ -7,7 +7,7 @@ public class DetallePrestamo {
     private Libro libro;
 
 
-    public DetallePrestamo(int cantidad, Libro libro ) {
+    public DetallePrestamo(int cantidad, Libro libro) {
         this.libro=libro;
         this.cantidad = cantidad;
         this.subtotal=0;
@@ -38,13 +38,13 @@ public class DetallePrestamo {
         this.cantidad = cantidad;
     }
 
-    public void agregarLibro(){
-        
-    }
+    public void calcularSubtotal(){
 
-    public void calcularSubtotal() {
+
 
     }
+
+
 
     @Override
     public String toString() {
