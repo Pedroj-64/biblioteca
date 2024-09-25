@@ -38,6 +38,10 @@ public class DetallePrestamo {
         this.cantidad = cantidad;
     }
 
+    public void agregarLibro(){
+        
+    }
+
     public void calcularSubtotal() {
 
     }

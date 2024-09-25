@@ -81,17 +81,6 @@ public class Prestamo {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public void agregarLibro() {
-
-    }
-
-    public void obtenerCantidadLibro() {
-
-    }
-
-    public void eliminarCantidadLibro() {
-
-    }
 
     public void calcularTotal() {
 

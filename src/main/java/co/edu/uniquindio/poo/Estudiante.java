@@ -23,4 +23,9 @@ public class Estudiante extends Persona {
         this.idEstudiante = idEstudiante;
     }
 
+    @Override
+    public String toString() {
+        return "Estudiante [idEstudiante=" + idEstudiante + ", prestamos=" + prestamos + "]";
+    }
+
 }
