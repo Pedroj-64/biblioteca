@@ -1,20 +1,30 @@
 package co.edu.uniquindio.poo;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.LinkedList;
-
+/**
+ * Clase prestamo la cual contiene los detalles de los prestamos
+ */
 public class Prestamo {
 
-    private Date fechaEntrega;
-    private Date fechaPrestamo;
-    private double costoDia;
+    private LocalDate fechaEntrega;
+    private LocalDate fechaPrestamo;
+    public  double costoDia;
     private String codigo;
     private Estudiante estudiante;
     private Bibliotecario bibliotecario;
-    private Collection<DetallePrestamo> detallePrestamos;
-
-    public Prestamo(Date fechaEntrega, Date fechaPrestamo, double costoDia, String codigo, Estudiante estudiante,
+    private Collection<DetallePrestamo> detallePrestamo;
+    /**
+     * Metodo cosntructor de la clase
+     * @param fechaEntrega
+     * @param fechaPrestamo
+     * @param costoDia
+     * @param codigo
+     * @param estudiante
+     * @param bibliotecario
+     */
+    public Prestamo(LocalDate fechaEntrega, LocalDate fechaPrestamo, double costoDia, String codigo, Estudiante estudiante,
             Bibliotecario bibliotecario) {
         this.fechaEntrega = fechaEntrega;
         this.fechaPrestamo = fechaPrestamo;
@@ -22,9 +32,12 @@ public class Prestamo {
         this.codigo = codigo;
         this.estudiante = estudiante;
         this.bibliotecario = bibliotecario;
-        detallePrestamos = new LinkedList<>();
+        detallePrestamo = new LinkedList<>();
     }
-
+    /**
+     * Metodos getters y setters de la clase
+     * @return
+     */
     public double getCostoDia() {
         return costoDia;
     }
@@ -57,27 +70,27 @@ public class Prestamo {
         this.bibliotecario = bibliotecario;
     }
 
-    public Collection<DetallePrestamo> getDetallePrestamos() {
-        return detallePrestamos;
+    public Collection<DetallePrestamo> getDetallePrestamo() {
+        return detallePrestamo;
     }
 
-    public void setDetallePrestamos(Collection<DetallePrestamo> detallePrestamos) {
-        this.detallePrestamos = detallePrestamos;
+    public void setDetallePrestamo(Collection<DetallePrestamo> detallePrestamo) {
+        this.detallePrestamo = detallePrestamo;
     }
 
-    public Date getFechaEntrega() {
+    public LocalDate getFechaEntrega() {
         return fechaEntrega;
     }
 
-    public Date getFechaPrestamo() {
+    public LocalDate getFechaPrestamo() {
         return fechaPrestamo;
     }
 
-    public void setFechaPrestamo(Date fechaPrestamo) {
+    public void setFechaPrestamo(LocalDate fechaPrestamo) {
         this.fechaPrestamo = fechaPrestamo;
     }
 
-    public void setFechaEntrega(Date fechaEntrega) {
+    public void setFechaEntrega(LocalDate fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
 
@@ -85,12 +98,14 @@ public class Prestamo {
     public void calcularTotal() {
 
     }
-
+    /**
+     * Metodo toString de la clase
+     */
     @Override
     public String toString() {
         return "Prestamo [fechaEntrega=" + fechaEntrega + ", fechaPrestamo=" + fechaPrestamo + ", costoDia=" + costoDia
                 + ", codigo=" + codigo + ", estudiante=" + estudiante + ", bibliotecario=" + bibliotecario
-                + ", detallePrestamos=" + detallePrestamos + "]";
+                + ", detallePrestamos=" + detallePrestamo + "]";
     }
 
 }

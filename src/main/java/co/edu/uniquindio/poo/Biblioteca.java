@@ -2,7 +2,9 @@ package co.edu.uniquindio.poo;
 
 import java.util.Collection;
 import java.util.LinkedList;
-
+/**
+ * Clase Biblioteca es el centro de control de todas las actividades de la biblioteca
+ */
 public class Biblioteca {
     private String nombre;
     private Collection<Libro> listaLibros;
@@ -12,7 +14,12 @@ public class Biblioteca {
     private double ganancia;
     private int cantidadLibros=listaLibros.size();
 
-
+    /**
+     * Metodo cosntructor de la biblioteca con inicializacion de listas pertinentes
+     * @param nombre
+     * @param ganancia
+     * @param cantidadLibros
+     */
     public Biblioteca(String nombre,double ganancia , int cantidadLibros) {
         this.nombre = nombre;
         this.ganancia=ganancia;
@@ -22,7 +29,10 @@ public class Biblioteca {
         listaEmpleados = new LinkedList<>();
         listaClientes = new LinkedList<>();
     }
-
+    /**
+     * Metodos getters y setters de la clase
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
@@ -80,6 +90,8 @@ public class Biblioteca {
     }
 
     /**
+     * 
+     * 
      * Metodo que busca libro dentro de la lista de existente y arroja el libro que
      * se quiere consultar por medio de ISBN
      * 
@@ -143,7 +155,12 @@ public class Biblioteca {
             }
         }
     }
-
+    /**
+     * Metodo que verifica si existe bibliotecario con la misma informacion de identificacion personal (id)
+     * ya que si existe dicho empleado ya no tiene sentido registrarlo de nuevo
+     * @param cedula
+     * @return
+     */
     public boolean existeBibliotecario(String cedula){
         boolean banderilla=false;
         for(Bibliotecario bibliotecario : listaEmpleados){
@@ -155,12 +172,20 @@ public class Biblioteca {
         return banderilla;
 
     }
+    /**
+     * Metodo que agregar Bibliotecario a partir de la confirmacion de otro metodo
+     * @param bibliotecario
+     */
     public void agregarBibliotecario(Bibliotecario bibliotecario){
         if(!existeBibliotecario(bibliotecario.getCedula())){
             listaEmpleados.add(bibliotecario);
 
         }
     }
+    /**
+     * Metodo que elimina bibliotecarios desde la cedula 
+     * @param cedula
+     */
     public void eliminarBibliotecario(String cedula){
         for(Bibliotecario bibliotecario : listaEmpleados){
             if(bibliotecario.getCedula().equals(cedula)){
@@ -168,6 +193,11 @@ public class Biblioteca {
             }
         }
     }
+    /**
+     * Metodo que verifica la existencia de un estudiante dentro de la base de datos de la biblioteca
+     * @param cedula
+     * @return
+     */
     public boolean existeEstudiante(String cedula){
         boolean banderilla=false;
         for(Estudiante estudiante : listaClientes){
@@ -179,13 +209,21 @@ public class Biblioteca {
         return banderilla;
 
     }
+    /**
+     * Metodo que agrega estudiante despues de una verificacion con otros metodos
+     * @param estudiante
+     */
     public void agregarEstudiante(Estudiante estudiante){
         if(!existeEstudiante(estudiante.getCedula())){
             listaClientes.add(estudiante);
 
         }
     }
-    public void eliminarCliente(String cedula){
+    /**
+     * Metodo que elimina estudiante a partir de la cedula
+     * @param cedula
+     */
+    public void eliminarEstudiante(String cedula){
         for(Estudiante estudiante : listaClientes){
             if(estudiante.getCedula().equals(cedula)){
                 listaClientes.remove(estudiante);
@@ -232,4 +270,14 @@ public class Biblioteca {
     public void calcularSalarioEmpleado() {
 
     }
+    /**
+     * Metodo toString de la clase
+     */
+    @Override
+    public String toString() {
+        return "Biblioteca [nombre=" + nombre + ", listaLibros=" + listaLibros + ", listaPrestamos=" + listaPrestamos
+                + ", listaEmpleados=" + listaEmpleados + ", listaClientes=" + listaClientes + ", ganancia=" + ganancia
+                + ", cantidadLibros=" + cantidadLibros + "]";
+    }
+
 }

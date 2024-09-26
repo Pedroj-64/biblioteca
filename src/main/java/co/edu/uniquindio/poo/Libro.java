@@ -1,18 +1,30 @@
 package co.edu.uniquindio.poo;
 
-import java.sql.Date;
-
+import java.time.LocalDate;
+/**
+ * Clase Libro la cual es el principal producto de la biblioteca 
+ */
 public class Libro {
     private String titulo;
     private String codigo;
     private String isbn;
     private String autor;
     private String editorial;
-    private Date fechaDePublicacion;
+    private LocalDate fechaDePublicacion;
     private int stock;
     private boolean estado;
-
-    public Libro(String titulo, String codigo, String isbn, String autor, String editorial, Date fechaDePublicacion,
+    /**
+     * Constructor de la clase libro
+     * @param titulo
+     * @param codigo
+     * @param isbn
+     * @param autor
+     * @param editorial
+     * @param fechaDePublicacion
+     * @param stock
+     * @param estado
+     */
+    public Libro(String titulo, String codigo, String isbn, String autor, String editorial, LocalDate fechaDePublicacion,
             int stock,boolean estado) {
         this.titulo = titulo;
         this.codigo = codigo;
@@ -23,7 +35,10 @@ public class Libro {
         this.stock = stock;
         this.estado=estado;
     }
-
+    /**
+     * Metodos getters y setters de la clase
+     * @return
+     */
     public String getTitulo() {
         return titulo;
     }
@@ -64,11 +79,11 @@ public class Libro {
         this.editorial = editorial;
     }
 
-    public Date getFechaDePublicacion() {
+    public LocalDate getFechaDePublicacion() {
         return fechaDePublicacion;
     }
 
-    public void setFechaDePublicacion(Date fechaDePublicacion) {
+    public void setFechaDePublicacion(LocalDate fechaDePublicacion) {
         this.fechaDePublicacion = fechaDePublicacion;
     }
 
@@ -80,6 +95,16 @@ public class Libro {
         this.stock = stock;
     }
 
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    /**
+     * Metodo toString de la clase
+     */
     @Override
     public String toString() {
         return "Libro [titulo=" + titulo + ", codigo=" + codigo + ", isbn=" + isbn + ", autor=" + autor + ", editorial="
