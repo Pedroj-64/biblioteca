@@ -95,9 +95,7 @@ public class Prestamo {
     }
 
 
-    public void calcularTotal() {
-
-    }
+    
     /**
      * Metodo toString de la clase
      */

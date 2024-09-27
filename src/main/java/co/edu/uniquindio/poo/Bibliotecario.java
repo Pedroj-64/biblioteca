@@ -75,6 +75,17 @@ public class Bibliotecario extends Persona {
         return cantidad;
     }
     /**
+     * ;etodo para obtener una lista de los prestamos de un empleado
+     * @return
+     */
+    public Collection<Prestamo> getListaPrestamos() {
+        return prestamos;
+    }
+
+    public void setListaPrestamos(Collection<Prestamo> listaPrestamos) {
+        this.prestamos = listaPrestamos;
+    }
+    /**
      * Metodo toString de la clase
      */
     @Override

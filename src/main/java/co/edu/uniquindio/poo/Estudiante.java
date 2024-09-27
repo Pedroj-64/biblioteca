@@ -34,6 +34,18 @@ public class Estudiante extends Persona {
     public void setIdEstudiante(int idEstudiante) {
         this.idEstudiante = idEstudiante;
     }
+    
+    /**
+     * Metodo para crear la lista de prestamos de la clase estudiantes
+     * @return
+     */
+    public Collection<Prestamo> getListaPrestamos() {
+        return prestamos;
+    }
+
+    public void setListaPrestamos(Collection<Prestamo> listaPrestamos) {
+        this.prestamos = listaPrestamos;
+    }
     /**
      * Metodo toString de la clase
      */
@@ -41,5 +53,6 @@ public class Estudiante extends Persona {
     public String toString() {
         return "Estudiante [idEstudiante=" + idEstudiante + ", prestamos=" + prestamos + "]";
     }
+
 
 }

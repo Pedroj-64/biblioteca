@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
 /**
  * Clase Libro la cual es el principal producto de la biblioteca 
  */
@@ -13,6 +14,7 @@ public class Libro {
     private LocalDate fechaDePublicacion;
     private int stock;
     private boolean estado;
+    private LinkedList<DetallePrestamo> Detallesprestamos;
     /**
      * Constructor de la clase libro
      * @param titulo
@@ -34,6 +36,7 @@ public class Libro {
         this.fechaDePublicacion = fechaDePublicacion;
         this.stock = stock;
         this.estado=estado;
+        Detallesprestamos = new LinkedList<>();
     }
     /**
      * Metodos getters y setters de la clase
@@ -102,6 +105,23 @@ public class Libro {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+    public LinkedList<DetallePrestamo> getDetallesprestamos() {
+        return Detallesprestamos;
+    }
+
+    public void setDetallesprestamos(LinkedList<DetallePrestamo> Detallesprestamos) {
+        this.Detallesprestamos = Detallesprestamos;
+    }
+
+    /**
+     * Metodo que vincula los DetallesPrestamo a un Libro
+     * @param detallePrestamo
+     */
+    public void agregarDetallesPrestamos(DetallePrestamo detallePrestamo) {
+        getDetallesprestamos().add(detallePrestamo);
+    }
+
     /**
      * Metodo toString de la clase
      */

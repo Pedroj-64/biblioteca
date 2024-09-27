@@ -230,9 +230,80 @@ public class Biblioteca {
             }
         }
     }
+    /**
+     * Metodo para calcular la cantidad de libros prestados para los estudiantes
+     * @return
+     */
 
-    public void calcularLibrosPrestamo() {
+    public int calcularLibrosPrestamo() {
+        int totalPrestados = 0;
+        for (Estudiante estudiante : listaClientes){
+            totalPrestados += estudiante.getListaPrestamos().size();
+        }
+        return totalPrestados;
+    }
 
+    /**
+     * Metodo que calcula el total de dinero recaudado
+     * @return
+     */
+
+     public double totalDineroRecaudado(){
+        double totalRecaudado = 0;
+        for (Prestamo prestamo : listaPrestamos) {
+            totalRecaudado += detallePrestamos.calcularSubtotal();
+        }
+        return totalRecaudado;
+    }
+
+    /**
+     * Metodo que muestra la cantidad de prestamos por empleado
+     */
+
+     public void mostrarCantidadPrestamosPorEmpleado(){
+        for (Bibliotecario bibliotecario : listaEmpleados) {
+            System.out.println("Empleado: " + bibliotecario.getNombre() + ", Cantidad de préstamos: " + bibliotecario.cantidadPrestamosEmpleado());
+        }
+    }
+
+    /**
+     * Metodo para mostrar datos estudiante con mas prestamos
+     */
+
+     public void mostrarDatosEstudianteConMasPrestamos() {
+        Estudiante estudianteConMasPrestamos = null;
+        int maxPrestamos = 0;
+
+        for (Estudiante estudiante : listaClientes) {
+            int cantidadPrestamos = estudiante.getListaPrestamos().size();
+            if (cantidadPrestamos > maxPrestamos) {
+                maxPrestamos = cantidadPrestamos;
+                estudianteConMasPrestamos = estudiante;
+            }
+        }
+
+        if (estudianteConMasPrestamos != null) {
+            System.out.println("Estudiante con más préstamos:");
+            System.out.println("Nombre: " + estudianteConMasPrestamos.getNombre());
+            System.out.println("Cédula: " + estudianteConMasPrestamos.getCedula());
+            System.out.println("Cantidad de préstamos: " + maxPrestamos);
+        } else {
+            System.out.println("No hay estudiantes registrados.");
+        }
+    }
+
+    /**
+     * metodo para calcular el total dinero recaudado a un bibliotecario
+     */
+
+     public void totalDineroRecaudadoPorEmpleado() {
+        for (Bibliotecario bibliotecario : listaEmpleados) {
+            double totalRecaudado = 0;
+            for (Prestamo prestamo : bibliotecario.getListaPrestamos()) {
+                totalRecaudado += prestamo.calcula();
+            }
+            System.out.println("Bibliotecario: " + bibliotecario.getNombre() + ", Total recaudado: " + totalRecaudado);
+        }
     }
 
     public void recibirEntregaPrestamo() {
@@ -243,19 +314,7 @@ public class Biblioteca {
 
     }
 
-    public void mostrarPrestamosEmpleado() {
-
-    }
-
-    public void mostrarPrestamosEstudiantes() {
-
-    }
-
     public void mostrarPrestamosEstudiante() {
-
-    }
-
-    public void calcularTotalRecaudo() {
 
     }
 
