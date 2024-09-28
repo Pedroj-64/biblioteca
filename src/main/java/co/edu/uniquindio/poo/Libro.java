@@ -1,9 +1,11 @@
 package co.edu.uniquindio.poo;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.LinkedList;
+
 /**
- * Clase Libro la cual es el principal producto de la biblioteca 
+ * Clase Libro la cual es el principal producto de la biblioteca
  */
 public class Libro {
     private String titulo;
@@ -13,10 +15,12 @@ public class Libro {
     private String editorial;
     private LocalDate fechaDePublicacion;
     private int stock;
-    private boolean estado;
-    private LinkedList<DetallePrestamo> Detallesprestamos;
+    private Estado estado;
+    private Collection<DetallePrestamo> historialPrestamos;
+
     /**
      * Constructor de la clase libro
+     * 
      * @param titulo
      * @param codigo
      * @param isbn
@@ -26,8 +30,9 @@ public class Libro {
      * @param stock
      * @param estado
      */
-    public Libro(String titulo, String codigo, String isbn, String autor, String editorial, LocalDate fechaDePublicacion,
-            int stock,boolean estado) {
+    public Libro(String titulo, String codigo, String isbn, String autor, String editorial,
+            LocalDate fechaDePublicacion,
+            int stock, Estado estado) {
         this.titulo = titulo;
         this.codigo = codigo;
         this.isbn = isbn;
@@ -35,11 +40,13 @@ public class Libro {
         this.editorial = editorial;
         this.fechaDePublicacion = fechaDePublicacion;
         this.stock = stock;
-        this.estado=estado;
-        Detallesprestamos = new LinkedList<>();
+        this.estado = estado;
+        historialPrestamos = new LinkedList<>();
     }
+
     /**
      * Metodos getters y setters de la clase
+     * 
      * @return
      */
     public String getTitulo() {
@@ -98,28 +105,20 @@ public class Libro {
         this.stock = stock;
     }
 
-    public boolean isEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
-    public LinkedList<DetallePrestamo> getDetallesprestamos() {
-        return Detallesprestamos;
+    public Collection<DetallePrestamo> getDetallesprestamos() {
+        return historialPrestamos;
     }
 
-    public void setDetallesprestamos(LinkedList<DetallePrestamo> Detallesprestamos) {
-        this.Detallesprestamos = Detallesprestamos;
-    }
-
-    /**
-     * Metodo que vincula los DetallesPrestamo a un Libro
-     * @param detallePrestamo
-     */
-    public void agregarDetallesPrestamos(DetallePrestamo detallePrestamo) {
-        getDetallesprestamos().add(detallePrestamo);
+    public void setDetallesprestamos(Collection<DetallePrestamo> historialPrestamos) {
+        this.historialPrestamos = historialPrestamos;
     }
 
     /**

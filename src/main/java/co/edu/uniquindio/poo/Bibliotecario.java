@@ -2,6 +2,7 @@ package co.edu.uniquindio.poo;
 
 import java.util.Collection;
 import java.util.LinkedList;
+
 /**
  * Clase bibliotecario la se extiende de persona
  */
@@ -11,8 +12,10 @@ public class Bibliotecario extends Persona {
     private Biblioteca biblioteca;
     private int antiguedadEnAnios;
     private Collection<Prestamo> prestamos;
+
     /**
      * Metodo constructor de la clase bibliotecario
+     * 
      * @param nombre
      * @param cedula
      * @param telefono
@@ -28,8 +31,10 @@ public class Bibliotecario extends Persona {
         prestamos = new LinkedList<>();
 
     }
+
     /**
      * Metodos setters y getters de la clase
+     * 
      * @return
      */
     public double getSalario() {
@@ -47,8 +52,10 @@ public class Bibliotecario extends Persona {
     public void setSalarario(double salario) {
         this.salario = salario;
     }
+
     /**
-     * Metodo que deja al bibliotecario actulizar la cantidad de un libro a partir de un isbn y el nuevo stock que se quiera poner
+     * Metodo que deja al bibliotecario actulizar la cantidad de un libro a partir
+     * de un isbn y el nuevo stock que se quiera poner
      */
     public void actulizarCantidadLibro(String isbn, int stock) {
         for (Libro libro : biblioteca.getListaLibros()) {
@@ -58,24 +65,37 @@ public class Bibliotecario extends Persona {
         }
 
     }
+
     /**
      * Metodo que atribuye prestamos creados al bibliotecario para llevar registros
+     * 
      * @param prestamo
      */
     public void realizarPrestamo(Prestamo prestamo) {
-        prestamos.add(prestamo);
-
+        for (DetallePrestamo detalles : prestamo.getDetallePrestamo()) {
+            Estado libroEstado = detalles.getLibro().getEstado();
+            if (libroEstado == Estado.DISPONIBLE) {
+                prestamos.add(prestamo);
+                prestamo.getEstudiante().getListaPrestamos().add(prestamo);
+            } else {
+                System.out.println("Imposible realizar el prestamo debido a que el estado del libro no lo permite");
+            }
+        }
     }
+
     /**
-     * Metodo que contea la cantidad de prestamos atribuidos de un empleado 
+     * Metodo que contea la cantidad de prestamos atribuidos de un empleado
+     * 
      * @return
      */
-    public int cantidadPrestamosEmpleado(){
-        int cantidad=prestamos.size();
+    public int cantidadPrestamosEmpleado() {
+        int cantidad = prestamos.size();
         return cantidad;
     }
+
     /**
-     * ;etodo para obtener una lista de los prestamos de un empleado
+     * Metodo para obtener una lista de los prestamos de un empleado
+     * 
      * @return
      */
     public Collection<Prestamo> getListaPrestamos() {
@@ -85,6 +105,7 @@ public class Bibliotecario extends Persona {
     public void setListaPrestamos(Collection<Prestamo> listaPrestamos) {
         this.prestamos = listaPrestamos;
     }
+
     /**
      * Metodo toString de la clase
      */

@@ -2,8 +2,10 @@ package co.edu.uniquindio.poo;
 
 import java.util.Collection;
 import java.util.LinkedList;
+
 /**
- * Clase Biblioteca es el centro de control de todas las actividades de la biblioteca
+ * Clase Biblioteca es el centro de control de todas las actividades de la
+ * biblioteca
  */
 public class Biblioteca {
     private String nombre;
@@ -12,25 +14,28 @@ public class Biblioteca {
     private Collection<Bibliotecario> listaEmpleados;
     private Collection<Estudiante> listaClientes;
     private double ganancia;
-    private int cantidadLibros=listaLibros.size();
+    private int cantidadLibros = listaLibros.size();
 
     /**
      * Metodo cosntructor de la biblioteca con inicializacion de listas pertinentes
+     * 
      * @param nombre
      * @param ganancia
      * @param cantidadLibros
      */
-    public Biblioteca(String nombre,double ganancia , int cantidadLibros) {
+    public Biblioteca(String nombre, double ganancia, int cantidadLibros) {
         this.nombre = nombre;
-        this.ganancia=ganancia;
-        this.cantidadLibros=cantidadLibros;
+        this.ganancia = ganancia;
+        this.cantidadLibros = cantidadLibros;
         listaLibros = new LinkedList<>();
         listaPrestamos = new LinkedList<>();
         listaEmpleados = new LinkedList<>();
         listaClientes = new LinkedList<>();
     }
+
     /**
      * Metodos getters y setters de la clase
+     * 
      * @return
      */
     public String getNombre() {
@@ -89,9 +94,7 @@ public class Biblioteca {
         this.listaEmpleados = listaEmpleados;
     }
 
-    /**
-     * 
-     * 
+    /*
      * Metodo que busca libro dentro de la lista de existente y arroja el libro que
      * se quiere consultar por medio de ISBN
      * 
@@ -106,7 +109,7 @@ public class Biblioteca {
     }
 
     /**
-     * Metodo de verificacion de existencia de libro libro a partir de la lista
+     * Metodo de verificacion de existencia de libro a partir de la lista
      * 
      * @param libro
      * @return
@@ -140,7 +143,8 @@ public class Biblioteca {
     }
 
     /**
-     * Metodo que elimina libro de la lista solo si existe por medio del codigo del
+     * Metodo que elimina un libro de la lista solo si existe por medio del codigo
+     * del
      * libro
      * 
      * @param codigo
@@ -155,104 +159,123 @@ public class Biblioteca {
             }
         }
     }
+
     /**
-     * Metodo que verifica si existe bibliotecario con la misma informacion de identificacion personal (id)
+     * Metodo que verifica si existe bibliotecario con la misma informacion de
+     * identificacion personal (id)
      * ya que si existe dicho empleado ya no tiene sentido registrarlo de nuevo
+     * 
      * @param cedula
      * @return
      */
-    public boolean existeBibliotecario(String cedula){
-        boolean banderilla=false;
-        for(Bibliotecario bibliotecario : listaEmpleados){
-            if(bibliotecario.getCedula().equals(cedula)){
-                banderilla=true;
+    public boolean existeBibliotecario(String cedula) {
+        boolean banderilla = false;
+        for (Bibliotecario bibliotecario : listaEmpleados) {
+            if (bibliotecario.getCedula().equals(cedula)) {
+                banderilla = true;
             }
         }
 
         return banderilla;
 
     }
+
     /**
      * Metodo que agregar Bibliotecario a partir de la confirmacion de otro metodo
+     * 
      * @param bibliotecario
      */
-    public void agregarBibliotecario(Bibliotecario bibliotecario){
-        if(!existeBibliotecario(bibliotecario.getCedula())){
+    public void agregarBibliotecario(Bibliotecario bibliotecario) {
+        if (!existeBibliotecario(bibliotecario.getCedula())) {
             listaEmpleados.add(bibliotecario);
 
         }
     }
+
     /**
-     * Metodo que elimina bibliotecarios desde la cedula 
+     * Metodo que elimina bibliotecarios desde la cedula
+     * 
      * @param cedula
      */
-    public void eliminarBibliotecario(String cedula){
-        for(Bibliotecario bibliotecario : listaEmpleados){
-            if(bibliotecario.getCedula().equals(cedula)){
+    public void eliminarBibliotecario(String cedula) {
+        for (Bibliotecario bibliotecario : listaEmpleados) {
+            if (bibliotecario.getCedula().equals(cedula)) {
                 listaEmpleados.remove(bibliotecario);
             }
         }
     }
+
     /**
-     * Metodo que verifica la existencia de un estudiante dentro de la base de datos de la biblioteca
+     * Metodo que verifica la existencia de un estudiante dentro de la base de datos
+     * de la biblioteca
+     * 
      * @param cedula
      * @return
      */
-    public boolean existeEstudiante(String cedula){
-        boolean banderilla=false;
-        for(Estudiante estudiante : listaClientes){
-            if(estudiante.getCedula().equals(cedula)){
-                banderilla=true;
+    public boolean existeEstudiante(String cedula) {
+        boolean banderilla = false;
+        for (Estudiante estudiante : listaClientes) {
+            if (estudiante.getCedula().equals(cedula)) {
+                banderilla = true;
             }
         }
 
         return banderilla;
 
     }
+
     /**
      * Metodo que agrega estudiante despues de una verificacion con otros metodos
+     * 
      * @param estudiante
      */
-    public void agregarEstudiante(Estudiante estudiante){
-        if(!existeEstudiante(estudiante.getCedula())){
+    public void agregarEstudiante(Estudiante estudiante) {
+        if (!existeEstudiante(estudiante.getCedula())) {
             listaClientes.add(estudiante);
 
         }
     }
+
     /**
      * Metodo que elimina estudiante a partir de la cedula
+     * 
      * @param cedula
      */
-    public void eliminarEstudiante(String cedula){
-        for(Estudiante estudiante : listaClientes){
-            if(estudiante.getCedula().equals(cedula)){
+    public void eliminarEstudiante(String cedula) {
+        for (Estudiante estudiante : listaClientes) {
+            if (estudiante.getCedula().equals(cedula)) {
                 listaClientes.remove(estudiante);
             }
         }
     }
+
     /**
      * Metodo para calcular la cantidad de libros prestados para los estudiantes
+     * 
      * @return
      */
 
     public int calcularLibrosPrestamo() {
         int totalPrestados = 0;
-        for (Estudiante estudiante : listaClientes){
+        for (Estudiante estudiante : listaClientes) {
             totalPrestados += estudiante.getListaPrestamos().size();
         }
         return totalPrestados;
     }
 
     /**
-     * Metodo que calcula el total de dinero recaudado
+     * Metodo que calcula el total de dinero recaudado por la biblioteca como
+     * ganancia
+     * 
      * @return
      */
 
-     public double totalDineroRecaudado(){
+    public double totalDineroRecaudado() {
         double totalRecaudado = 0;
         for (Prestamo prestamo : listaPrestamos) {
-            totalRecaudado += detallePrestamos.calcularSubtotal();
+            totalRecaudado += prestamo.calculartotal();
         }
+        ganancia = totalRecaudado;
         return totalRecaudado;
     }
 
@@ -260,9 +283,10 @@ public class Biblioteca {
      * Metodo que muestra la cantidad de prestamos por empleado
      */
 
-     public void mostrarCantidadPrestamosPorEmpleado(){
+    public void mostrarCantidadPrestamosPorEmpleado() {
         for (Bibliotecario bibliotecario : listaEmpleados) {
-            System.out.println("Empleado: " + bibliotecario.getNombre() + ", Cantidad de préstamos: " + bibliotecario.cantidadPrestamosEmpleado());
+            System.out.println("Empleado: " + bibliotecario.getNombre() + ", Cantidad de préstamos: "
+                    + bibliotecario.cantidadPrestamosEmpleado());
         }
     }
 
@@ -270,7 +294,7 @@ public class Biblioteca {
      * Metodo para mostrar datos estudiante con mas prestamos
      */
 
-     public void mostrarDatosEstudianteConMasPrestamos() {
+    public void mostrarDatosEstudianteConMasPrestamos() {
         Estudiante estudianteConMasPrestamos = null;
         int maxPrestamos = 0;
 
@@ -296,30 +320,47 @@ public class Biblioteca {
      * metodo para calcular el total dinero recaudado a un bibliotecario
      */
 
-     public void totalDineroRecaudadoPorEmpleado() {
+    public void totalDineroRecaudadoPorEmpleado() {
         for (Bibliotecario bibliotecario : listaEmpleados) {
             double totalRecaudado = 0;
             for (Prestamo prestamo : bibliotecario.getListaPrestamos()) {
-                totalRecaudado += prestamo.calcula();
+                totalRecaudado += prestamo.calculartotal();
             }
             System.out.println("Bibliotecario: " + bibliotecario.getNombre() + ", Total recaudado: " + totalRecaudado);
         }
     }
 
-    public void recibirEntregaPrestamo() {
+    /**
+     * Metodo que ayuda a consultar un prestamo a partir del codigo del mismo
+     * 
+     * @param codigo
+     */
+    public void consultarPrestamo(String codigo) {
+        for (Prestamo prestamo : listaPrestamos) {
+            if (prestamo.getCodigo().equals(codigo)) {
+                System.out.println(prestamo);
+            }
+
+        }
 
     }
 
-    public void consultarPrestamo() {
+    /**
+     * Metodo que muestra la lista de Prestamos de un estudiante especifico por el
+     * idEstudiante
+     * 
+     * @param idEstudiante
+     */
+    public void mostrarPrestamosEstudiante(int idEstudiante) {
+        for (Estudiante estudiante : listaClientes) {
+            if (estudiante.getIdEstudiante() == idEstudiante) {
+                Collection<Prestamo> PrestamoEstudiante = estudiante.getListaPrestamos();
+                System.out.println("Los prestamos del estudiante identificado con: " + idEstudiante + " son:"
+                        + PrestamoEstudiante);
+                break;
+            }
 
-    }
-
-    public void mostrarPrestamosEstudiante() {
-
-    }
-
-    public void totalPrestamos() {
-
+        }
     }
 
     public void calcularAntiguedad() {
@@ -329,6 +370,7 @@ public class Biblioteca {
     public void calcularSalarioEmpleado() {
 
     }
+
     /**
      * Metodo toString de la clase
      */

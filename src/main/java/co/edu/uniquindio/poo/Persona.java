@@ -1,14 +1,17 @@
 package co.edu.uniquindio.poo;
+
 /**
- * Clase persona la cual es la base de los tipos de usuario de la biblioteca 
+ * Clase persona la cual es la base de los tipos de usuario de la biblioteca
  */
 public class Persona {
     private String nombre;
     private String cedula;
     private String telefono;
     private String correo;
+
     /**
      * Metodo constructor de la clase
+     * 
      * @param nombre
      * @param cedula
      * @param telefono
@@ -20,8 +23,10 @@ public class Persona {
         this.telefono = telefono;
         this.correo = correo;
     }
+
     /**
      * Metodos getters y setters de la clase
+     * 
      * @return
      */
     public String getNombre() {
@@ -55,6 +60,7 @@ public class Persona {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
     /**
      * Metodo toString de la clase
      */

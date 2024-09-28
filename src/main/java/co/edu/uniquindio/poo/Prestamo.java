@@ -3,6 +3,7 @@ package co.edu.uniquindio.poo;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.LinkedList;
+
 /**
  * Clase prestamo la cual contiene los detalles de los prestamos
  */
@@ -10,13 +11,15 @@ public class Prestamo {
 
     private LocalDate fechaEntrega;
     private LocalDate fechaPrestamo;
-    public  double costoDia;
+    public double costoDia;
     private String codigo;
     private Estudiante estudiante;
     private Bibliotecario bibliotecario;
     private Collection<DetallePrestamo> detallePrestamo;
+
     /**
      * Metodo cosntructor de la clase
+     * 
      * @param fechaEntrega
      * @param fechaPrestamo
      * @param costoDia
@@ -24,7 +27,8 @@ public class Prestamo {
      * @param estudiante
      * @param bibliotecario
      */
-    public Prestamo(LocalDate fechaEntrega, LocalDate fechaPrestamo, double costoDia, String codigo, Estudiante estudiante,
+    public Prestamo(LocalDate fechaEntrega, LocalDate fechaPrestamo, double costoDia, String codigo,
+            Estudiante estudiante,
             Bibliotecario bibliotecario) {
         this.fechaEntrega = fechaEntrega;
         this.fechaPrestamo = fechaPrestamo;
@@ -34,8 +38,10 @@ public class Prestamo {
         this.bibliotecario = bibliotecario;
         detallePrestamo = new LinkedList<>();
     }
+
     /**
      * Metodos getters y setters de la clase
+     * 
      * @return
      */
     public double getCostoDia() {
@@ -94,8 +100,22 @@ public class Prestamo {
         this.fechaEntrega = fechaEntrega;
     }
 
+    public double calculartotal() {
+        double total = 0;
+        for (DetallePrestamo detallePrestamo : detallePrestamo) {
+            total += detallePrestamo.getSubtotal();
+        }
+        return total;
+    }
 
-    
+    public void agregarDetallesPrestamo(DetallePrestamo detalle) {
+        if (detalle.getCantidad() < detalle.getLibro().getStock()) {
+            detallePrestamo.add(detalle);
+            detalle.ajustesNecesario();
+        }
+
+    }
+
     /**
      * Metodo toString de la clase
      */

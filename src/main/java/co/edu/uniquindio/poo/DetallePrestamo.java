@@ -70,6 +70,18 @@ public class DetallePrestamo {
         }
         return subtotal;
     }
+    public void ajustesNecesario(){
+        int nuevoStock=libro.getStock() - cantidad;
+        libro.setStock(nuevoStock);
+        if(libro.getStock()==0){
+            libro.setEstado(Estado.NO_DISPONIBLE);
+        }else if(libro.getStock()>0){
+            libro.setEstado(Estado.DISPONIBLE);
+        }else if(libro.getStock()<cantidad){
+            System.out.println("La cantidad excede el stock por lo tanto no se puede crear el prestamo");
+        }
+
+    }
     /**
      * Metodo toString de la clase
      */
