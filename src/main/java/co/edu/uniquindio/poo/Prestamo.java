@@ -99,7 +99,9 @@ public class Prestamo {
     public void setFechaEntrega(LocalDate fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
-
+    /**
+     * Metodo que calcula el total de la factura del prestamo
+     */
     public double calculartotal() {
         double total = 0;
         for (DetallePrestamo detallePrestamo : detallePrestamo) {
@@ -107,7 +109,10 @@ public class Prestamo {
         }
         return total;
     }
-
+    /**
+     * Metodo para agregar detalles a cada prestamo como tal
+     * @param detalle
+     */
     public void agregarDetallesPrestamo(DetallePrestamo detalle) {
         if (detalle.getCantidad() < detalle.getLibro().getStock()) {
             detallePrestamo.add(detalle);

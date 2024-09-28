@@ -279,10 +279,7 @@ public class Biblioteca {
         return totalRecaudado;
     }
 
-    /**
-     * Metodo que muestra la cantidad de prestamos por empleado
-     */
-
+    /** */
     public void mostrarCantidadPrestamosPorEmpleado() {
         for (Bibliotecario bibliotecario : listaEmpleados) {
             System.out.println("Empleado: " + bibliotecario.getNombre() + ", Cantidad de préstamos: "
@@ -316,14 +313,15 @@ public class Biblioteca {
         }
     }
 
-    /**
-     * metodo para calcular el total dinero recaudado a un bibliotecario
-     */
 
+    /**
+     * 
+     * Metodo para el calculo de ganancia por empleado
+     */
     public void totalDineroRecaudadoPorEmpleado() {
         for (Bibliotecario bibliotecario : listaEmpleados) {
             double totalRecaudado = 0;
-            for (Prestamo prestamo : bibliotecario.getListaPrestamos()) {
+            for (Prestamo prestamo : bibliotecario.getPrestamos()) {
                 totalRecaudado += prestamo.calculartotal();
             }
             System.out.println("Bibliotecario: " + bibliotecario.getNombre() + ", Total recaudado: " + totalRecaudado);

@@ -52,12 +52,24 @@ public class Bibliotecario extends Persona {
     public void setSalarario(double salario) {
         this.salario = salario;
     }
+    /**
+     * Metodo para obtener una lista de los prestamos de un empleado
+     * 
+     * @return
+     */
+    public Collection<Prestamo> getPrestamos() {
+        return prestamos;
+    }
+
+    public void setPrestamos(Collection<Prestamo> prestamos) {
+        this.prestamos = prestamos;
+    }
 
     /**
      * Metodo que deja al bibliotecario actulizar la cantidad de un libro a partir
      * de un isbn y el nuevo stock que se quiera poner
      */
-    public void actulizarCantidadLibro(String isbn, int stock) {
+    public void actualizarCantidadLibro(String isbn, int stock) {
         for (Libro libro : biblioteca.getListaLibros()) {
             if (libro.getIsbn().equals(isbn)) {
                 libro.setStock(stock);
@@ -93,18 +105,6 @@ public class Bibliotecario extends Persona {
         return cantidad;
     }
 
-    /**
-     * Metodo para obtener una lista de los prestamos de un empleado
-     * 
-     * @return
-     */
-    public Collection<Prestamo> getListaPrestamos() {
-        return prestamos;
-    }
-
-    public void setListaPrestamos(Collection<Prestamo> listaPrestamos) {
-        this.prestamos = listaPrestamos;
-    }
 
     /**
      * Metodo toString de la clase

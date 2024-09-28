@@ -70,6 +70,9 @@ public class DetallePrestamo {
         }
         return subtotal;
     }
+    /**
+     * Metodo necesesario a la hora de crear cualquier prestamo haciendo ajustes internos
+     */
     public void ajustesNecesario(){
         int nuevoStock=libro.getStock() - cantidad;
         libro.setStock(nuevoStock);
