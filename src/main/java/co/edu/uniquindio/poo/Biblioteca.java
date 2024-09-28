@@ -361,12 +361,24 @@ public class Biblioteca {
         }
     }
 
-    public void calcularAntiguedad() {
+    /**
+     * Metodo para aumentar un 2% el salario del empleado por cada año que lleve de antiguedad
+     * @param bibliotecario
+     */
+    public void calcularSalarioEmpleado(Bibliotecario bibliotecario) {
+        // Obtener la fecha de contrato del bibliotecario
+        LocalDate fechaContrato = bibliotecario.getFechaContrato();
 
-    }
+        // Calcular la diferencia en años entre la fecha de contrato y la fecha actual porque me dio paja hacerlo en otro metodo
+        long diferencia = ChronoUnit.YEARS.between(fechaContrato, LocalDate.now());
 
-    public void calcularSalarioEmpleado() {
+        // Obtener el salario actual del bibliotecario
+        double salarioActual = bibliotecario.getSalario();
 
+        // Usando el math.pow para que fuera mas practico y compacto se calcula de manera facil el 2% de mas que se debe reflejar en el
+        // salario por cada año de antiguedad
+        double nuevoSalario = salarioActual * Math.pow(1.02, diferencia);
+        bibliotecario.setSalario(nuevoSalario);
     }
 
     /**

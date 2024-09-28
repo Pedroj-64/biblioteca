@@ -1,5 +1,5 @@
 package co.edu.uniquindio.poo;
-
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -10,8 +10,8 @@ public class Bibliotecario extends Persona {
 
     private double salario;
     private Biblioteca biblioteca;
-    private int antiguedadEnAnios;
     private Collection<Prestamo> prestamos;
+    private LocalDate fechaContrato;
 
     /**
      * Metodo constructor de la clase bibliotecario
@@ -21,13 +21,13 @@ public class Bibliotecario extends Persona {
      * @param telefono
      * @param correo
      * @param salario
-     * @param antiguedadEnAnios
+     * @param fechaContrato
      */
     public Bibliotecario(String nombre, String cedula, String telefono, String correo, double salario,
-            int antiguedadEnAnios) {
+            LocalDate fechaContrato) {
         super(nombre, cedula, telefono, correo);
         this.salario = salario;
-        this.antiguedadEnAnios = antiguedadEnAnios;
+        this.fechaContrato = fechaContrato;
         prestamos = new LinkedList<>();
 
     }
@@ -41,12 +41,12 @@ public class Bibliotecario extends Persona {
         return salario;
     }
 
-    public int getAntiguedadEnAnios() {
-        return antiguedadEnAnios;
+    public LocalDate fechaContrato() {
+        return fechaContrato;
     }
 
-    public void setAntiguedadEnAnios(int antiguedadEnAnios) {
-        this.antiguedadEnAnios = antiguedadEnAnios;
+    public void setFechaContrato(LocalDate fechaContrato) {
+        this.fechaContrato = fechaContrato;
     }
 
     public void setSalarario(double salario) {
