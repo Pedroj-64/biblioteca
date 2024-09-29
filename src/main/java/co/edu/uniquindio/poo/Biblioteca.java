@@ -285,7 +285,7 @@ public class Biblioteca {
     public void mostrarCantidadPrestamosPorEmpleado() {
         for (Bibliotecario bibliotecario : listaEmpleados) {
             System.out.println("Empleado: " + bibliotecario.getNombre() + ", Cantidad de préstamos: "
-                    + bibliotecario.cantidadPrestamosEmpleado());
+                    + bibliotecario.getPrestamos().size());
         }
     }
 
