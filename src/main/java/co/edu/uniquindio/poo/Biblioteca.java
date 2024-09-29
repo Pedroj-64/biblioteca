@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -378,7 +380,21 @@ public class Biblioteca {
         // Usando el math.pow para que fuera mas practico y compacto se calcula de manera facil el 2% de mas que se debe reflejar en el
         // salario por cada año de antiguedad
         double nuevoSalario = salarioActual * Math.pow(1.02, diferencia);
-        bibliotecario.setSalario(nuevoSalario);
+        bibliotecario.setSalarario(nuevoSalario);
+    }
+    /**
+     * Metodo que realiza la bonificacion de cada prestamo realizado por el bibliotecario
+     */
+    public void bonificacionPorPrestamoEmpleado(){
+        for(Bibliotecario bibliotecario : listaEmpleados){
+            Collection<Prestamo> prestamos=bibliotecario.getPrestamos();
+            for(Prestamo prestamo: prestamos){
+                double total=prestamo.getTotal();
+                double bonificacion=total*0.20;
+                double nuevoSueldo=bibliotecario.getSalario()+bonificacion;
+                bibliotecario.setSalarario(nuevoSueldo);
+            }
+        }
     }
 
     /**

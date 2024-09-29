@@ -39,9 +39,13 @@ public class Bibliotecario extends Persona {
      */
     public double getSalario() {
         return salario;
+    }  
+    
+    public void setSalarario(double salario) {
+        this.salario = salario;
     }
 
-    public LocalDate fechaContrato() {
+    public LocalDate getFechaContrato() {
         return fechaContrato;
     }
 
@@ -49,9 +53,6 @@ public class Bibliotecario extends Persona {
         this.fechaContrato = fechaContrato;
     }
 
-    public void setSalarario(double salario) {
-        this.salario = salario;
-    }
     /**
      * Metodo para obtener una lista de los prestamos de un empleado
      * 
@@ -109,9 +110,9 @@ public class Bibliotecario extends Persona {
     /**
      * Metodo toString de la clase
      */
-    @Override
+     @Override
     public String toString() {
-        return "Bibliotecario [salario=" + salario + ", biblioteca=" + biblioteca + ", antiguedadEnAnios="
-                + antiguedadEnAnios + "]";
+        return "Bibliotecario [salario=" + salario + ", biblioteca=" + biblioteca + ", prestamos=" + prestamos
+                + ", fechaContrato=" + fechaContrato + "]";
     }
 }

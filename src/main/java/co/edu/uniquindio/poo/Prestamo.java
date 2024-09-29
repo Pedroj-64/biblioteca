@@ -16,6 +16,7 @@ public class Prestamo {
     private Estudiante estudiante;
     private Bibliotecario bibliotecario;
     private Collection<DetallePrestamo> detallePrestamo;
+    private double total;
 
     /**
      * Metodo cosntructor de la clase
@@ -99,11 +100,20 @@ public class Prestamo {
     public void setFechaEntrega(LocalDate fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
+    
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
     /**
      * Metodo que calcula el total de la factura del prestamo
      */
     public double calculartotal() {
-        double total = 0;
+        total = 0;
         for (DetallePrestamo detallePrestamo : detallePrestamo) {
             total += detallePrestamo.getSubtotal();
         }
@@ -121,14 +131,11 @@ public class Prestamo {
 
     }
 
-    /**
-     * Metodo toString de la clase
-     */
     @Override
     public String toString() {
         return "Prestamo [fechaEntrega=" + fechaEntrega + ", fechaPrestamo=" + fechaPrestamo + ", costoDia=" + costoDia
                 + ", codigo=" + codigo + ", estudiante=" + estudiante + ", bibliotecario=" + bibliotecario
-                + ", detallePrestamos=" + detallePrestamo + "]";
+                + ", detallePrestamo=" + detallePrestamo + ", total=" + total + "]";
     }
 
 }
